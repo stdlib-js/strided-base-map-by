@@ -22,7 +22,7 @@ limitations under the License.
 
 # mapBy
 
-[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] [![dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
 > Apply a unary function to each element retrieved from a strided input array according to a callback function and assign results to a strided output array.
 
@@ -305,8 +305,12 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/strided-base-map-by/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/strided-base-map-by?branch=main
 
+<!--
+
 [dependencies-image]: https://img.shields.io/david/stdlib-js/strided-base-map-by.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/strided-base-map-by/main
+
+-->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
