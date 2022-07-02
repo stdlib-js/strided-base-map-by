@@ -61,7 +61,9 @@ If no recognized module system is present, access bundle contents via the global
 ```html
 <script type="text/javascript">
 (function () {
+(function () {
     window.mapBy;
+})();
 })();
 </script>
 ```
@@ -245,6 +247,7 @@ mapBy.ndarray( 3, x, 2, 1, y, -1, y.length-1, abs, accessor );
 <body>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
 <script type="text/javascript">
+(function () {
 (function () {.factory;
 var filledarray = require( '@stdlib/array-filled' );
 var filledarrayBy = require( '@stdlib/array-filled-by' );
@@ -268,6 +271,7 @@ console.log( y );
 mapBy.ndarray( x.length, x, 1, 0, y, -1, y.length-1, abs, accessor );
 console.log( y );
 
+})();
 })();
 </script>
 </body>
