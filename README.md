@@ -43,25 +43,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/strided-base-map-by
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import mapBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-map-by@deno/mod.js';
-```
-The previous example will load the latest bundled code from the deno branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/strided-base-map-by/tags). For example,
-
-```javascript
-import mapBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-map-by@v0.2.0-deno/mod.js';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-map-by@deno/mod.js';
+var mapBy = require( '@stdlib/strided-base-map-by' );
 ```
 
 #### mapBy( N, x, strideX, y, strideY, fcn, clbk\[, thisArg] )
@@ -69,7 +76,7 @@ import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-map-
 Applies a unary function to each element retrieved from a strided input array according to a callback function and assigns results to a strided output array.
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -103,7 +110,7 @@ The invoked callback function is provided four arguments:
 To set the callback execution context, provide a `thisArg`.
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     this.count += 1;
@@ -127,7 +134,7 @@ var cnt = context.count;
 The `N` and `stride` parameters determine which elements in `x` and `y` are accessed at runtime. For example, to index every other value in `x` and to index the first `N` elements of `y` in reverse order,
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -143,8 +150,8 @@ mapBy( 3, x, 2, y, -1, abs, accessor );
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -167,7 +174,7 @@ mapBy( 3, x1, -2, y1, 1, abs, accessor );
 Applies a unary function to each element retrieved from a strided input array according to a callback function and assigns results to a strided output array using alternative indexing semantics.
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -188,7 +195,7 @@ The function accepts the following additional arguments:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the `offsetX` and `offsetY` parameters support indexing semantics based on starting indices. For example, to index every other value in `x` starting from the second value and to index the last `N` elements in `y` in reverse order,
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -212,7 +219,7 @@ mapBy.ndarray( 3, x, 2, 1, y, -1, y.length-1, abs, accessor );
 -   If a provided callback function does not return any value (or equivalently, explicitly returns `undefined`), the value is **ignored**.
 
     ```javascript
-    import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
+    var abs = require( '@stdlib/math-base-special-abs' );
 
     function accessor() {
         // No-op...
@@ -236,11 +243,11 @@ mapBy.ndarray( 3, x, 2, 1, y, -1, y.length-1, abs, accessor );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform' ).factory;
-import filledarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled@deno/mod.js';
-import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@deno/mod.js';
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
-import mapBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-map-by@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+var filledarray = require( '@stdlib/array-filled' );
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var abs = require( '@stdlib/math-base-special-abs' );
+var mapBy = require( '@stdlib/strided-base-map-by' );
 
 function accessor( v, i ) {
     if ( (i%3) === 0 ) {
@@ -288,7 +295,7 @@ console.log( y );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -318,8 +325,8 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/strided-base-map-by.svg
 [npm-url]: https://npmjs.org/package/@stdlib/strided-base-map-by
 
-[test-image]: https://github.com/stdlib-js/strided-base-map-by/actions/workflows/test.yml/badge.svg?branch=v0.2.0
-[test-url]: https://github.com/stdlib-js/strided-base-map-by/actions/workflows/test.yml?query=branch:v0.2.0
+[test-image]: https://github.com/stdlib-js/strided-base-map-by/actions/workflows/test.yml/badge.svg?branch=v0.2.1
+[test-url]: https://github.com/stdlib-js/strided-base-map-by/actions/workflows/test.yml?query=branch:v0.2.1
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/strided-base-map-by/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/strided-base-map-by?branch=main
@@ -357,9 +364,9 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/strided/base/map-by2]: https://github.com/stdlib-js/strided-base-map-by2/tree/deno
+[@stdlib/strided/base/map-by2]: https://github.com/stdlib-js/strided-base-map-by2
 
-[@stdlib/strided/base/unary]: https://github.com/stdlib-js/strided-base-unary/tree/deno
+[@stdlib/strided/base/unary]: https://github.com/stdlib-js/strided-base-unary
 
 <!-- </related-links> -->
 
